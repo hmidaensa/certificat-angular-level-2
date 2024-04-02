@@ -1,0 +1,57 @@
+<div class="container">
+
+    <div class="card" *ngFor="let item of currentWeathers" [ngStyle]="{'margin-bottom': '8px'}">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-8">
+                    {{item.name}}
+                </div>
+                <div class="col-4" appChangeColor>
+                    <a class="button" (click)="displayForcast(item.location.zip)">Displays the 5-day forecas</a>
+                </div>
+            </div>
+            
+           
+        </div>
+        <div class="card-body">
+            <div class="row">
+            <div class="col-8">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-8">
+                            Currrent conditions 
+                        </div>
+                        <div  class="col-4">
+                            <p class="card-text"><small class="text-muted">{{item.weather[0].main}}</small></p>
+                        </div>
+                        <div class="col-8">
+                            Temperature
+                        </div>
+                        <div  class="col-4">
+                            <p class="card-text"><small class="text-muted">{{item.main.temp}}</small></p>
+                        </div>
+                        <div class="col-8">
+                            Max today
+                        </div>
+                        <div  class="col-4">
+                            <p class="card-text"><small class="text-muted">{{item.main.temp_max}}</small></p>
+                        </div>
+                        <div class="col-8">
+                            Min today
+                        </div>
+                        <div  class="col-4">
+                            <p class="card-text"><small class="text-muted">{{item.main.temp_min}}</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4"> 
+                <img src="{{item.weather[0].main | weatherImg}}" class="img-fluid rounded-start img-weather" >
+            </div>
+        </div>
+
+        </div>
+    </div>
+   
+
+</div>
